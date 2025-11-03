@@ -237,6 +237,52 @@ body {
     }
 }
 
+/* Dynamic Island Navigation Styles */
+.nav-island-collapsed {
+    width: auto;
+    min-width: 190px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.nav-island-collapsed:hover {
+    width: auto;
+    min-width: 780px;
+}
+
+.nav-collapsed {
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.nav-island-collapsed:hover .nav-collapsed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-expanded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: opacity 0.3s ease 0.15s;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.nav-island-collapsed:hover .nav-expanded {
+    opacity: 1;
+    pointer-events: all;
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
     nav .hidden {
