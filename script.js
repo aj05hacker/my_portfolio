@@ -1,3 +1,171 @@
+// Collapsible Projects Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    function updateCardHeight(card) {
+        if (!card) return;
+        const content = card.querySelector('.project-content');
+        if (!content) return;
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    }
+    
+    // Open first project by default after a delay to ensure content is loaded
+    if (projectCards.length > 0) {
+        setTimeout(() => {
+            const firstCard = projectCards[0];
+            const firstContent = firstCard.querySelector('.project-content');
+            const firstChevron = firstCard.querySelector('.project-chevron');
+            
+            // Add active class first to ensure proper z-index
+            firstCard.classList.add('active');
+            
+            // Then set the height
+            firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+            firstChevron.style.transform = 'rotate(0deg)';
+            
+            // Force a reflow to ensure the active class is applied before content expands
+            firstCard.offsetHeight;
+
+            // Recalculate height once initial content settles
+            setTimeout(() => updateCardHeight(firstCard), 200);
+        }, 100);
+    }
+    
+    projectCards.forEach(card => {
+        const header = card.querySelector('.project-header');
+        const content = card.querySelector('.project-content');
+        const chevron = card.querySelector('.project-chevron');
+        const images = card.querySelectorAll('.project-content img');
+
+        images.forEach(img => {
+            if (img.complete) {
+                updateCardHeight(card);
+            } else {
+                img.addEventListener('load', () => updateCardHeight(card));
+            }
+        });
+        
+        header.addEventListener('click', function() {
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            
+            // Close all other projects and remove active class
+            projectCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    const otherContent = otherCard.querySelector('.project-content');
+                    const otherChevron = otherCard.querySelector('.project-chevron');
+                    otherContent.style.maxHeight = '0px';
+                    otherChevron.style.transform = 'rotate(180deg)';
+                    otherCard.classList.remove('active');
+                }
+            });
+            
+            // Toggle current project
+            if (isOpen) {
+                content.style.maxHeight = '0px';
+                chevron.style.transform = 'rotate(180deg)';
+                card.classList.remove('active');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                chevron.style.transform = 'rotate(0deg)';
+                card.classList.add('active');
+                setTimeout(() => updateCardHeight(card), 150);
+            }
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        projectCards.forEach(card => updateCardHeight(card));
+    });
+});
+
+// Image Zoom Modal Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    const modal = document.getElementById('imageZoomModal');
+    const zoomedImage = document.getElementById('zoomedImage');
+
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', function () {
+            zoomedImage.src = img.src;
+            modal.classList.remove('hidden');
+        });
+    });
+
+    // Close modal when clicking outside or on the image itself
+    modal.addEventListener('click', function () {
+        modal.classList.add('hidden');
+        zoomedImage.src = '';
+    });
+    zoomedImage.addEventListener('click', function () {
+        modal.classList.add('hidden');
+        zoomedImage.src = '';
+    });
+});
+
+// Project Iframe Modal Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const iframeModal = document.getElementById('projectIframeModal');
+    const projectIframe = document.getElementById('projectIframe');
+    const closeBtn = document.getElementById('closeIframeBtn');
+    const previewButtons = document.querySelectorAll('.project-preview-btn');
+
+    // Open iframe modal when preview button is clicked
+    previewButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const projectUrl = this.getAttribute('data-project-url');
+            projectIframe.src = projectUrl;
+            iframeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close iframe modal
+    function closeIframeModal() {
+        iframeModal.classList.add('hidden');
+        projectIframe.src = ''; // Clear iframe to stop loading
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Close button click
+    closeBtn.addEventListener('click', closeIframeModal);
+
+    // Close on background click
+    iframeModal.addEventListener('click', function (e) {
+        if (e.target === iframeModal) {
+            closeIframeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !iframeModal.classList.contains('hidden')) {
+            closeIframeModal();
+        }
+    });
+});
+// Image Zoom Modal Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    const modal = document.getElementById('imageZoomModal');
+    const zoomedImage = document.getElementById('zoomedImage');
+
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', function () {
+            zoomedImage.src = img.src;
+            modal.classList.remove('hidden');
+        });
+    });
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal || e.target === zoomedImage) {
+            modal.classList.add('hidden');
+            zoomedImage.src = '';
+        }
+    });
+});
 // Scroll Reveal Animation
 function revealOnScroll() {
     const reveals = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
@@ -311,6 +479,9 @@ document.addEventListener('keydown', (e) => {
 // Initialize Theme Color Selector
 function init3DCube() {
     const colorBoxes = document.querySelectorAll('.theme-color-box');
+    
+    // Exit if no color boxes found
+    if (colorBoxes.length === 0) return;
     
     colorBoxes.forEach(box => {
         box.addEventListener('click', () => {
@@ -774,132 +945,7 @@ function init3DCube() {
         }
     }
     
-    function hideCube() {
-        const cubeContainer = document.getElementById('crystal-container');
-        const cubeSection = cubeContainer.closest('.mt-16');
-        if (cubeSection) {
-            cubeSection.style.opacity = '0';
-            cubeSection.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                cubeSection.style.display = 'none';
-            }, 300);
-        }
-    }
-    
-    function showCube() {
-        const cubeContainer = document.getElementById('crystal-container');
-        const cubeSection = cubeContainer.closest('.mt-16');
-        if (cubeSection) {
-            cubeSection.style.display = 'flex';
-            setTimeout(() => {
-                cubeSection.style.opacity = '1';
-                cubeSection.style.transform = 'scale(1)';
-            }, 10);
-        }
-    }
-    
-    function updateCubeTransform() {
-        crystal.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-    }
-    
-    function smoothSnapToFace() {
-        targetRotationX = snapToNearestFace(currentRotationX);
-        targetRotationY = snapToNearestFace(currentRotationY);
-        
-        function animate() {
-            const diffX = targetRotationX - currentRotationX;
-            const diffY = targetRotationY - currentRotationY;
-            
-            if (Math.abs(diffX) > 0.1 || Math.abs(diffY) > 0.1) {
-                currentRotationX += diffX * 0.15;
-                currentRotationY += diffY * 0.15;
-                updateCubeTransform();
-                requestAnimationFrame(animate);
-            } else {
-                currentRotationX = targetRotationX;
-                currentRotationY = targetRotationY;
-                updateCubeTransform();
-                
-                // Check if face changed and apply theme
-                const face = getCurrentFace();
-                const theme = colorThemes[face];
-                
-                if (theme && (theme.gradientFrom !== currentTheme.gradientFrom)) {
-                    applyTheme(theme);
-                    showThemeNotification(theme.name);
-                    hideCube();
-                    showResetButton();
-                }
-            }
-        }
-        animate();
-    }
-    
-    // Mouse down event
-    crystal.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        previousMouseX = e.clientX;
-        previousMouseY = e.clientY;
-        crystal.style.cursor = 'grabbing';
-        e.preventDefault();
-    });
-    
-    // Mouse move event
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        
-        const deltaX = e.clientX - previousMouseX;
-        const deltaY = e.clientY - previousMouseY;
-        
-        currentRotationX -= deltaY * 0.5;
-        currentRotationY += deltaX * 0.5;
-        
-        previousMouseX = e.clientX;
-        previousMouseY = e.clientY;
-        
-        updateCubeTransform();
-    });
-    
-    // Mouse up event
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            crystal.style.cursor = 'grab';
-            smoothSnapToFace();
-        }
-    });
-    
-    // Touch events for mobile
-    crystal.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        const touch = e.touches[0];
-        previousMouseX = touch.clientX;
-        previousMouseY = touch.clientY;
-        e.preventDefault();
-    });
-    
-    document.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        
-        const touch = e.touches[0];
-        const deltaX = touch.clientX - previousMouseX;
-        const deltaY = touch.clientY - previousMouseY;
-        
-        currentRotationX -= deltaY * 0.5;
-        currentRotationY += deltaX * 0.5;
-        
-        previousMouseX = touch.clientX;
-        previousMouseY = touch.clientY;
-        
-        updateCubeTransform();
-    });
-    
-    document.addEventListener('touchend', () => {
-        if (isDragging) {
-            isDragging = false;
-            smoothSnapToFace();
-        }
-    });
+
     
     // Reset button functionality
     const resetBtn = document.getElementById('theme-reset-btn');
