@@ -193,9 +193,9 @@ abdul-hajees-portfolio/
 - **Contact**: `https://abdulhajees.in/#contact`
 
 ### External Projects:
-- **Pludo Coder**: `https://coder.pludo.online`
-- **Pludo Builder**: `https://beta.pludo.online`
-- **Pludo Scraper**: `https://scraper.pludo.online`
+- **Pludo Coder**: `https://coder.pludoai.com`
+- **Pludo Builder**: `https://beta.pludoai.com`
+- **Pludo Scraper**: `https://scraper.pludoai.com`
 - **Resume PDF**: `https://abdulhajees.in/Resources/AbdulHajees_Resume.pdf`
 
 ### Social Profiles:
@@ -284,7 +284,7 @@ For questions, collaborations, or feedback:
 - **Email**: me@abdulhajees.in
 - **Location**: Chennai, Tamil Nadu, India
 - **Portfolio**: https://abdulhajees.in
-- **Pludo AI**: https://pludo.online
+- **Pludo AI**: https://pludoai.com
 
 ---
 

@@ -73,21 +73,21 @@
     
     <!-- Projects -->
     <url>
-        <loc>https://coder.pludo.online</loc>
+        <loc>https://coder.pludoai.com</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://beta.pludo.online</loc>
+        <loc>https://beta.pludoai.com</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://scraper.pludo.online</loc>
+        <loc>https://scraper.pludoai.com</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
