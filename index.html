@@ -45,10 +45,14 @@
     <meta name="twitter:site" content="@abdulhajees">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="hero.png">
-    <link rel="apple-touch-icon" href="hero.png">
+    <!-- Prefer a PNG favicon for broad browser support, keep SVG as optional/mask-icon -->
+    <link rel="icon" href="hero.png" type="image/png" sizes="32x32">
     <link rel="shortcut icon" href="hero.png">
+    <link rel="apple-touch-icon" href="hero.png">
+    <!-- SVG favicon retained for browsers that support it -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Safari pinned tab (optional) - uses currentColor for fill -->
+    <link rel="mask-icon" href="favicon.svg" color="#a855f7">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
