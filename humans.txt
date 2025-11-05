@@ -6,25 +6,8 @@ Twitter: @abdul_hajees
 LinkedIn: linkedin.com/in/abdulhajees
 GitHub: github.com/aj05hacker
 
-/* SITE */
-Standards: HTML5, CSS3, JavaScript ES6+
-Components: React.js, TypeScript, Tailwind CSS
-Backend: Python, Node.js, Firebase
-Software: VS Code, Figma, Git
-SEO: Comprehensive meta tags, structured data, sitemap
-Last update: 2025/01/01
-Language: English
-Doctype: HTML5
-IDE: VS Code
-
-/* THANKS */
-Framework: Tailwind CSS
-Form Service: FormSubmit
-AI Platform: Pludo AI
-Inspiration: The open-source community
-
 /* ABOUT */
 This is the personal portfolio of Abdul Hajees, a B.Tech IT graduate,
-Full-stack developer, UI/UX designer, and Founder of Pludo AI.
+Full-stack developer, UI/UX designer, and Creator of Pludo AI.
 Built with passion, attention to detail, and a commitment to
 crafting premium web experiences.
