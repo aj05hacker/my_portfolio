@@ -68,7 +68,7 @@ A premium, SEO-optimized personal portfolio website for **Abdul Hajees** - Full 
 - React Developer
 - TypeScript Developer
 - Python Developer
-- Web Developer Chennai
+- Web Developer Trichy
 - Frontend Developer
 - Backend Developer
 - AI SaaS
@@ -76,12 +76,12 @@ A premium, SEO-optimized personal portfolio website for **Abdul Hajees** - Full 
 - Pludo Coder
 - Software Engineer
 - B.Tech IT Graduate
-- Chennai Developer
+- Trichy Developer
 
 ### Location Keywords:
-- Chennai, Tamil Nadu, India
-- Web Developer in Chennai
-- Full Stack Developer Chennai
+- Trichy, Tamil Nadu, India
+- Web Developer in Trichy
+- Full Stack Developer Trichy
 
 ---
 
@@ -168,8 +168,8 @@ abdul-hajees-portfolio/
 
 ### Expected Rankings:
 - **Brand Name**: "Abdul Hajees" - Position 1-3
-- **Location + Skill**: "Full Stack Developer Chennai" - Position 5-15
-- **Specific Tech**: "React Developer Chennai" - Position 10-20
+- **Location + Skill**: "Full Stack Developer Trichy" - Position 5-15
+- **Specific Tech**: "React Developer Trichy" - Position 10-20
 - **Long-tail**: "UI/UX Designer Pludo AI Founder" - Position 1-5
 
 ### Key Metrics to Track:
@@ -282,10 +282,10 @@ abdul-hajees-portfolio/
 For questions, collaborations, or feedback:
 
 - **Email**: me@abdulhajees.in
-- **Location**: Chennai, Tamil Nadu, India
+- **Location**: Trichy, Tamil Nadu, India
 - **Portfolio**: https://abdulhajees.in
 - **Pludo AI**: https://pludoai.com
 
 ---
 
-**Built with 💜 in Chennai | © 2025 Abdul Hajees | All rights reserved**
+**Built with 💜 in Trichy | © 2025 Abdul Hajees | All rights reserved**
