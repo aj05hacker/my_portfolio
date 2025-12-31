@@ -199,7 +199,7 @@ abdul-hajees-portfolio/
 - **Resume PDF**: `https://abdulhajees.in/Resources/AbdulHajees_Resume.pdf`
 
 ### Social Profiles:
-- **GitHub**: `https://github.com/aj05hacker`
+- **GitHub**: `https://github.com/abdulhajees`
 - **LinkedIn**: `https://www.linkedin.com/in/abdulhajees`
 - **Twitter**: `https://twitter.com/abdulhajees`
 

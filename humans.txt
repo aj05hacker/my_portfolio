@@ -4,7 +4,7 @@ Contact: me@abdulhajees.in
 Location: Trichy, Tamil Nadu, India
 Twitter: @abdul_hajees
 LinkedIn: linkedin.com/in/abdulhajees
-GitHub: github.com/aj05hacker
+GitHub: github.com/abdulhajees
 
 /* ABOUT */
 This is the personal portfolio of Abdul Hajees, a B.Tech IT graduate,
